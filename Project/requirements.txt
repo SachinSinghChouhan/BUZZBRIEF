@@ -1,0 +1,6 @@
+pip>=23.0
+setuptools>=67.0
+wheel>=0.38.4
+TTS
+playsound==1.2.2
+espeak-ng
