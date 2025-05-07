@@ -48,6 +48,17 @@ async def connect_to_db():
     
 app=FastAPI()
 
+# Allow CORS for all origins (for development; restrict in production)
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change to specific domains in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 #Route to fetch news articles by date
 @app.get("/{month}/{date}/{year}")
 async def get_news_by_date(month:int, date:int, year:int):
